@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #fff;
+  overflow: auto;
+  padding: 20px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body.light {
+  background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+  color: #000;
+}
+
+body.light .clock-container {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.light button {
+  background-color: #cccccc;
+  color: #000;
+}
+
+body.light button:hover {
+  background-color: #bbb;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  font-size: 80px;
+  transition: all 0.5s ease;
+}
+
+.clock span {
+  margin: 0 5px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.ampm {
+  font-size: 40px;
+  vertical-align: text-top;
+}
+.clock span {
+  position: relative;
+  color: #fff;
+}
+
+.clock span::before,
+.clock span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+.clock span::before {
+  filter: blur(10px);
+}
+
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+  }
+}
+
+.date {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #ddd;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4e4376;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #022c48;
+}
+
+.analog-clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  margin-top: 20px;
+  display: none;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 6px;
+  background-color: #fff;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s ease-in-out;
+}
+
+.hour {
+  height: 8px;
+  background-color: #f00;
+}
+
+.minute {
+  height: 6px;
+  background-color: #0f0;
+}
+
+.second {
+  height: 4px;
+  background-color: #00f;
+}
+
+.center {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weather {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.alarm-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.alarm-container input,
+.alarm-container button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#alarms-list {
+  margin-top: 10px;
+}
+
+.alarm-item {
+  margin: 5px;
+  padding: 5px;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alarm-item button {
+  background: #ff6666;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #fff;
+}
+.stopwatch-timer-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.stopwatch,
+.timer {
+  margin: 10px;
+}
+
+#stopwatch-display,
+#timer-display {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.stopwatch button,
+.timer button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+.calendar-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#calendar {
+  margin-top: 10px;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.calendar-day {
+  padding: 5px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.calendar-day.today {
+  background: #4e4376;
+  color: #fff;
+}
+.todo-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.todo-container input,
+.todo-container button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.todo-item {
+  background: #444;
+  color: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item button {
+  background: #ff6666;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #fff;
+}
